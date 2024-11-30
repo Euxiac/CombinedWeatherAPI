@@ -1,5 +1,10 @@
 import axios from 'axios';
-import OpenWeather_key, { WorldTime_key } from "../config/credentials.js";
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const OPEN_WEATHER_KEY= process.env.OPEN_WEATHER_KEY;
+const WORLD_TIME_KEY= process.env.WORLD_TIME_KEY;
 
 export const getStatesByCountry = async (country) => {
   try {
@@ -52,7 +57,7 @@ export const getCitiesByState = async (country, state) => {
 
   export const getCoordinates = async (country, state, city) => {
     try {
-      const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${OpenWeather_key}`;
+      const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&limit=1&appid=${OPEN_WEATHER_KEY}`;
       
       // Correct the axios call, no need to destructure as an array
       const response = await axios.get(apiUrl, {
