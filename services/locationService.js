@@ -74,7 +74,8 @@ export const getAllCountries = async () => {
         FROM cities ci
   
         JOIN states st
-  
+        ON ci.state_id = st.state_id
+        
         JOIN countries co
         ON st.country = co.iso3
         
