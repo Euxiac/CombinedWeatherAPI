@@ -41,6 +41,15 @@ export const fetchCoordinates = async (req, res) => {
   }
 };
 
+export const fetchCoordinatesReturn = async (country, state, city) => {
+  try {
+    const data = await apiService.getCoordinates(country, state, city);
+    return data;
+  } catch (error) {
+    res.status(500).json({message: `Error communicating with external API : ${error.message}`});
+  }
+};
+
 export const fetchCurrentWeather = async (req, res) => {
   try {
     const lat = req.params.lat;

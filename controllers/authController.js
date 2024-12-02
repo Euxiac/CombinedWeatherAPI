@@ -16,19 +16,26 @@ export const getAuth = (req, res) => {
 };
 
 function generateAccessToken() {
-  return jwt.sign({DUCK:"DUCK"}, process.env.API_TOKEN, { expiresIn: "10s" });
+  return jwt.sign({ DUCK: "DUCK" }, process.env.API_TOKEN, {
+    expiresIn: "1800s",
+  });
 }
 
 export function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
+  if (req.headers["x-internal-request"] === "true") {
+    console.log("internal request");
+    next(); // Skip authorization for internal requests
+  }else {
+    const authHeader = req.headers["authorization"];
+    const token = authHeader && authHeader.split(" ")[1];
 
-  if (token == null) return res.sendStatus(401)
+    if (token == null) return res.sendStatus(401);
 
-  jwt.verify(token, process.env.API_TOKEN, (err, DUCK) => {
-    console.log(`jwt verify fail ${err}`);
+    jwt.verify(token, process.env.API_TOKEN, (err, DUCK) => {
+      console.log(`jwt verify ${err}`);
 
-    if (err) return res.sendStatus(403)
-    next()
-  })
+      if (err) return res.sendStatus(403);
+      next();
+    });
+  }
 }
