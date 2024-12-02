@@ -40,3 +40,36 @@ export const fetchCoordinates = async (req, res) => {
     res.status(500).json({message: `Error communicating with external API : ${error.message}`});
   }
 };
+
+export const fetchCurrentWeather = async (req, res) => {
+  try {
+    const lat = req.params.lat;
+    const lon = req.params.lon;
+    const data = await apiService.getCurrentWeather(lat, lon);
+    res.json({data});
+  } catch (error) {
+    res.status(500).json({message: `Error communicating with external API : ${error.message}`});
+  }
+};
+
+export const fetchComingWeek = async (req, res) => {
+  try {
+    const lat = req.params.lat;
+    const lon = req.params.lon;
+    const data = await apiService.getComingWeekWeather(lat, lon);
+    res.json({data});
+  } catch (error) {
+    res.status(500).json({message: `Error communicating with external API : ${error.message}`});
+  }
+};
+
+export const fetchCurrentTime = async (req, res) => {
+  try {
+    const lat = req.params.lat;
+    const lon = req.params.lon;
+    const data = await apiService.getCurrentTime(lat, lon);
+    res.json({data});
+  } catch (error) {
+    res.status(500).json({message: `Error communicating with external API : ${error.message}`});
+  }
+};
