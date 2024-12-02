@@ -12,12 +12,21 @@ router.get('/', (req, res) => {
 
 router.get('/countries', locationController.fetchAllCountries);
 
-router.get('/states', locationController.fetchAllStates);
+router.get('/states/all', locationController.fetchAllStates);
 
-router.get('/cities/limit-:limit/page-:page', locationController.fetchAllCities);
+router.get('/states/:country', locationController.fetchStatesByCountry);
+
+
+router.get('/cities/all/limit-:limit/page-:page', locationController.fetchAllCities);
+
+router.get('/cities/:country/:state/limit-:limit/page-:page', locationController.fetchCitiesByState);
+
+
 
 router.get('/query/:country/:state/:city', locationController.fetchFromQuery);
 
 router.get('/convert/:operation/:query', locationController.convert);
+
+router.get('/data', locationController.fetchLocationData)
 
 export default router; 

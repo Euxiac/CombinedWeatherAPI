@@ -26,12 +26,62 @@ export const getAllCountries = async () => {
     }
   };
 
+  export const getStatesByCountry = async (country) => {
+    try {
+      const [results] = await sequelize.query(`
+        SELECT  st.state_name, 
+        co.country_name,
+        co.iso3
+  
+        FROM states st
+  
+        JOIN countries co
+        ON st.country = co.iso3
+        
+        WHERE country_name = '${country}'
+      `);
+      return results;
+    } catch (error) {
+      throw new Error(
+        `${error.message}`
+      );
+    }
+  };
+
   export const getAllCities = async (limit, page) => {
     try {
       const [results] = await sequelize.query(`
         SELECT * FROM geolocation_database.cities;
       `);
       return results.slice(page * limit, (parseInt(page)+1) * limit);
+    } catch (error) {
+      throw new Error(
+        `Error fetching test data: ${error.message}`
+      );
+    }
+  };
+
+  export const getCitiesByState = async (country, state, limit, page) => {
+    try {
+      const [results] = await sequelize.query(`
+        SELECT ci.city_name, 
+        st.state_name, 
+        co.country_name,
+        co.iso3, 
+        ci.lat, 
+        ci.lon
+  
+        FROM cities ci
+  
+        JOIN states st
+  
+        JOIN countries co
+        ON st.country = co.iso3
+        
+        WHERE country_name = '${country}'
+        AND state_name = '${state}'
+      `);
+      return limit && page ? results.slice(page * limit, (parseInt(page)+1) * limit): results;
     } catch (error) {
       throw new Error(
         `Error fetching test data: ${error.message}`
@@ -97,6 +147,39 @@ export const getAllCountries = async () => {
     }
 
       const [results] = await sequelize.query(sqlQuery);
+      return results;
+    } catch (error) {
+      throw new Error(
+        `Error fetching data: ${error.message}`
+      );
+    }
+  };
+
+  export const getByCountry = async (country) => {
+    try {
+        if (country===null){
+                return results.state(400).send('missing parameters');
+        }
+      const [results] = await sequelize.query(`
+        SELECT ci.city_name, 
+        st.state_name, 
+        co.country_name,
+        co.iso3, 
+        ci.lat, 
+        ci.lon
+  
+        FROM cities ci
+  
+        JOIN states st
+        ON ci.state_id = st.state_id
+  
+        JOIN countries co
+        ON st.country = co.iso3
+  
+        WHERE 
+        co.country_name = "${country}"
+      `);;
+      
       return results;
     } catch (error) {
       throw new Error(
