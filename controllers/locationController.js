@@ -113,6 +113,7 @@ import * as locationService from '../services/locationService.js';
 
       const transformedCityData = data.map((city, index) => {
         return {
+            id: index+1,
             city: city.city_name
         };
     });
@@ -157,15 +158,7 @@ import * as locationService from '../services/locationService.js';
       for (let coi = 0; coi < countryData.length; coi++) {
         const stateData = await fetchStatesByCountryFormatted(countryData[coi].country);
         countryData[coi].states = stateData;
-        /*
-        for (let cii = 0; cii < countryData[coi].states[cii].length; cii++) {
-          console.log(countryData[coi].states[cii].length);
-          const cityData = await fetchCitiesByStateFormatted(countryData[coi].country, countryData[coi].states[cii]);
-          console.log(cityData);
-          countryData[coi].states[cii].cities = cityData;
-        }*/
       }
-      console.log("run")
       for (let i = 0; i < countryData.length; i++) {
         //console.log("country" + i);
         for (let i2 = 0; i2 < countryData[i].states.length; i2++) {
@@ -173,7 +166,7 @@ import * as locationService from '../services/locationService.js';
             const state  = countryData[i].states[i2].state;
             //console.log(i2 + " " + country + " " + state);
             const cityData = await fetchCitiesByStateFormatted(country, state);
-            console.log(cityData);
+            //console.log(cityData);
             countryData[i].states[i2].cities = cityData;
         }
       }
