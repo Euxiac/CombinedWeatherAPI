@@ -59,7 +59,6 @@ const getModelAndQueryData = async (entity, data) => {
       }
 
       const state_id = stateQuery.state_id;
-      console.log
 
 
       createData = {

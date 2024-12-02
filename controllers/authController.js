@@ -16,7 +16,7 @@ export const getAuth = (req, res) => {
 };
 
 function generateAccessToken() {
-  return jwt.sign({DUCK:"DUCK"}, process.env.API_TOKEN, { expiresIn: "1800s" });
+  return jwt.sign({DUCK:"DUCK"}, process.env.API_TOKEN, { expiresIn: "10s" });
 }
 
 export function authenticateToken(req, res, next) {
@@ -26,7 +26,7 @@ export function authenticateToken(req, res, next) {
   if (token == null) return res.sendStatus(401)
 
   jwt.verify(token, process.env.API_TOKEN, (err, DUCK) => {
-    console.log(err)
+    console.log(`jwt verify fail ${err}`);
 
     if (err) return res.sendStatus(403)
     next()
