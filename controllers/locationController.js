@@ -136,7 +136,6 @@ export const fetchCitiesByStateFormatted = async (country, state) => {
 
 export const fetchFromQuery = async (req, res) => {
   try {
-    console.log("---------------------------------LAT LON EMPTY");
     const country = req.params.country;
     const state = req.params.state;
     const city = req.params.city;
