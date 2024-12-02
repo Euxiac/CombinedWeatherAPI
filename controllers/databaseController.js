@@ -46,7 +46,12 @@ export const populateFromAPI = async (req, res) => {
     // Loop through the supported countries and fetch country data
     for (let i = 0; i < supportedCountries.length; i++) {
       const apiURL = `http://localhost:8000/api/fetch-states/${supportedCountries[i]}`;
-      const apiResponse = await axios.post(apiURL);
+      const apiResponse = await axios.post(apiURL, {
+        headers: {
+          "X-Internal-Request": "true", // Custom header to indicate internal request
+          "Content-Type": "application/json", // Ensure the body is sent as JSON
+        },
+      });
       countryData.push(apiResponse.data);
     }
 
@@ -63,7 +68,12 @@ export const populateFromAPI = async (req, res) => {
       const addCountryURL = `http://localhost:8000/database/entries/add-country`;
       try {
         // Send the request to add country
-        const response = await axios.post(addCountryURL, requestBody);
+        const response = await axios.post(addCountryURL, requestBody, {
+          headers: {
+            "X-Internal-Request": "true", // Custom header to indicate internal request
+            "Content-Type": "application/json", // Ensure the body is sent as JSON
+          },
+        });
         console.log(`Successfully added country: ${data.data.name}`);
         return response.data; // return the response or data you need
       } catch (error) {
@@ -93,7 +103,12 @@ export const populateFromAPI = async (req, res) => {
       const addCountryURL = `http://localhost:8000/database/entries/add-state`;
       try {
         // Send the request to add country
-        const response = await axios.post(addCountryURL, requestBody);
+        const response = await axios.post(addCountryURL, requestBody, {
+          headers: {
+            "X-Internal-Request": "true", // Custom header to indicate internal request
+            "Content-Type": "application/json", // Ensure the body is sent as JSON
+          },
+        });
         console.log(`Successfully added country: ${data.name}`);
         return response.data; // return the response or data you need
       } catch (error) {
@@ -105,13 +120,22 @@ export const populateFromAPI = async (req, res) => {
     //CITIES------------------------------------------------------------------------------------------
     // Loop through the states in stateData and fetch city data
     for (let i = 0; i < stateData.length; i++) {
-      const response = await axios.get(
-        `http://localhost:8000/location/convert/country_name/${stateData[i].iso3}`
-      );
+      const convertURL = `http://localhost:8000/location/convert/country_name/${stateData[i].iso3}`;
+      const response = await axios.get(convertURL, {
+        headers: {
+          "X-Internal-Request": "true", // Custom header to indicate internal request
+          "Content-Type": "application/json", // Ensure the body is sent as JSON
+        },
+      });
       const country_name = response.data.data[0].country_name;
 
       const apiURL = `http://localhost:8000/api/fetch-cities/${country_name}/${stateData[i].name}`;
-      const apiResponse = await axios.post(apiURL);
+      const apiResponse = await axios.post(apiURL, {
+        headers: {
+          "X-Internal-Request": "true", // Custom header to indicate internal request
+          "Content-Type": "application/json", // Ensure the body is sent as JSON
+        },
+      });
       cityData.push(apiResponse.data);
       cityData[i]["state_name"] = stateData[i].name;
       cityData[i]["country_iso3"] = stateData[i].iso3;
@@ -131,15 +155,19 @@ export const populateFromAPI = async (req, res) => {
           state_name: data.state_name,
         };
         //console.log(requestBody);
-        
+
         // URL for adding the city
         const addCityURL = `http://localhost:8000/database/entries/add-city`;
         try {
           // Send the request to add city
-          const response = await axios.post(addCityURL, requestBody);
+          const response = await axios.post(addCityURL, requestBody, {
+            headers: {
+              "X-Internal-Request": "true", // Custom header to indicate internal request
+              "Content-Type": "application/json", // Ensure the body is sent as JSON
+            },
+          });
           console.log(`Successfully added country: ${cityNames[i]}`);
-        } 
-        catch (error) {
+        } catch (error) {
           console.error(`Error adding country: ${cityNames[i]}`, error.message);
         }
       }
