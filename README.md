@@ -30,7 +30,7 @@ As well as a random string containing 128 characters which will be your API_TOKE
    ```
 5. **Fill data** with your keys and tokens
 6. **Create a new schema in Mysql Workbench locally**
-7. **Adjust your settings for this in `/config/database.js`
+7. **Adjust your database settings** in `/config/database.js`
 8. **Run app using:**
    ```bash
    npm start
