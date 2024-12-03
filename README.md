@@ -26,9 +26,12 @@ As well as a random string containing 128 characters which will be your API_TOKE
     OPEN_WEATHER_KEY= “your weather key”
     WORLD_TIME_KEY= ”your time key”
     API_TOKEN= "your api Token"
+    DATABASE_PASSWORD="your database password"
    ```
 5. **Fill data** with your keys and tokens
-6. **Run app using:**
+6. **Create a new schema in Mysql Workbench locally**
+7. **Adjust your settings for this in `/config/database.js`
+8. **Run app using:**
    ```bash
    npm start
    ```
@@ -82,6 +85,22 @@ As well as a random string containing 128 characters which will be your API_TOKE
 
 **convertCountry**
 - Converts country names to iso3 codes and vice versa
+- Request format: `http://APIAddress/location/convert/<targetType>/<query>`
+- Example Request format: `http://APIAddress/location/convert/iso3/australia`
+- Example Response:
+   ```bash
+      {
+          "data": [
+              {
+               "iso3": "aus"
+              }
+          ]
+      }
+   ```
+---
+
+**redraw with dataset**
+- Drops all current tables in database collection
 - Request format: `http://APIAddress/location/convert/<targetType>/<query>`
 - Example Request format: `http://APIAddress/location/convert/iso3/australia`
 - Example Response:
