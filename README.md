@@ -96,4 +96,17 @@ As well as a random string containing 128 characters which will be your API_TOKE
    ```
 ---
 
+## Super list
 
+**External API calls**
+- Gets coordinates of location `http://APIAddress/api/fetch-coordinates/<country iso3 code>/<state name>/<city name>`
+- Gets the current weather for location `http://APIAddress/api/fetch-weather/current/<latitude>,<longitude>`
+- Get the forecast for the coming week for location `http://APIAddress/api/fetch-weather/coming-week/<latitude>,<longitude>`
+- Gets the current time for the location `http://APIAddress/api/fetch-time/<latitude>,<longitude>`
+
+**Calls utilising the database**
+- Gets all countries database `http://APIAddress/location/countries`
+- Gets all states in database `http://APIAddress/location/countries`
+- Gets all cities in database `http://APIAddress/location/cities/all/limit-20/page-0`
+- Gets the states within a country `http://APIAddress/location/states/<country name>`
+- Gets all cities within a state `http://APIAddress/location/cities/<country name>/<state name>/limit-20/page-0`
