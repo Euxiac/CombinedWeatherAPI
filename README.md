@@ -100,19 +100,9 @@ As well as a random string containing 128 characters which will be your API_TOKE
 ---
 
 **redraw with dataset**
-- Drops all current tables in database collection
-- Request format: `http://APIAddress/location/convert/<targetType>/<query>`
-- Example Request format: `http://APIAddress/location/convert/iso3/australia`
-- Example Response:
-   ```bash
-      {
-          "data": [
-              {
-               "iso3": "aus"
-              }
-          ]
-      }
-   ```
+- Drops all current tables in database collection and redraw them using data. If you want to draw true data from the APIs, set mode to 'true'. If you don't have keys ready for the APIs, you can set the mode to 'Mock' and this will fill the database with a mock set of data.
+- Request format: `http://localhost:8000/database/tables/redraw/<MODE>`
+
 ---
 
 ## Super list
@@ -129,3 +119,8 @@ As well as a random string containing 128 characters which will be your API_TOKE
 - Gets all cities in database `http://APIAddress/location/cities/all/limit-20/page-0`
 - Gets the states within a country `http://APIAddress/location/states/<country name>`
 - Gets all cities within a state `http://APIAddress/location/cities/<country name>/<state name>/limit-20/page-0`
+
+--- 
+
+## Additional Notes
+
