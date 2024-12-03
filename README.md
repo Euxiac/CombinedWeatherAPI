@@ -48,4 +48,52 @@ As well as a random string containing 128 characters which will be your API_TOKE
 
 ---
 
+## Route Documentation
+
+**getAuth**
+- Generates an encryted user token to use as a bearer token to access the API
+- Request format: `http://APIAddress/auth/get`
+- Example Response:
+   ```bash
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJEVUNLIjoiRFVDSyIsImlhdCI6MTczMzI0NDI3NCwiZXhwIjoxNzMzMjYyMjc0fQ.aUunocsI4ZdkP9scn8Tpx2HAj-ckEOy0mwamk6oJ-Rg"
+   ```
+---
+
+**combinedRequest**
+- Returns combined data about a city, including location and coordinate data
+- Request format: `http://APIAddress/location/query/<country iso3 code>/<state name>/<city name>`
+- Example request: `http:/APIAddress/location/query/aus/western australia/abbey`
+- Example response:
+   ```bash
+      {
+          "data": [
+              {
+                  "city_name": "Abbey",
+                  "state_name": "western australia",
+                  "country_name": "australia",
+                  "iso3": "aus",
+                  "lat": "-33.6602000",
+                  "lon": "115.2596000"
+              }
+          ]
+      }
+   ```
+---
+
+**convertCountry**
+- Converts country names to iso3 codes and vice versa
+- Request format: `http://APIAddress/location/convert/<targetType>/<query>`
+- Example Request format: `http://APIAddress/location/convert/iso3/australia`
+- Example Response:
+   ```bash
+      {
+          "data": [
+              {
+               "iso3": "aus"
+              }
+          ]
+      }
+   ```
+---
+
 
