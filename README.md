@@ -33,3 +33,19 @@ As well as a random string containing 128 characters which will be your API_TOKE
    npm start
    ```
 ---
+
+## Testing the routes via postman
+  I would recommend testing the routes via [postman](https://www.postman.com/) if you do not have access to the **Weather.me** front end. Refer to the route documentation section for more information on individual routes but if you want to access all my testing routes you can do so by importing into the collections section of your postman.
+  1. **Set up and open your Postman**
+  2. **In the Collections View, click import**
+  3. **Grab the postman_collection file** from `/references/weather.me.postman_collection.json`
+  4. **Drop it into postman** your collection should populate
+  5. **Grab your new authentification token** by running in Postmasn /External API request/getAuth` this should return a random string.
+  6. **Go into Authorization in Postman and set up a new bearer token**
+     ![3](https://github.com/user-attachments/assets/813e5eee-7b06-42f6-bb9a-e8019f9e2800)
+
+  8. Note that if you set up Authorization on the collection level, it will apply to everything within that collection.
+
+---
+
+
