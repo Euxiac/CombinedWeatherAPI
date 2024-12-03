@@ -123,4 +123,8 @@ As well as a random string containing 128 characters which will be your API_TOKE
 --- 
 
 ## Additional Notes
+**Adjusting authentication token time out**
+By default I've set the JWT tokens to time out every 30minutes but if you wanted to change this for testing purposes you can find that number in `/controllers/authController.js` look for the function `generateAccessToken()` and edit `expiresIn` to whatever you want
 
+**Adjusting supported countries**
+By default when using true data, we only grab data for Australia. This itself already takes 2-3 minutes to redraw as there are 86 cities within Australia. You can adjust this but searching for the const `supportedCountries` and replacing the value inside that array.
