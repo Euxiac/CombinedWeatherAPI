@@ -1,6 +1,10 @@
 import Sequelize from "sequelize";
+import dotenv from "dotenv";
 
-const sequelize = new Sequelize("geolocation_database", "root", "29121995", {
+dotenv.config();
+
+const password = process.env.DATABASE_PASSWORD;
+const sequelize = new Sequelize("geolocation_database", "root", password, {
   host: "localhost",
   dialect: "mysql",
 });

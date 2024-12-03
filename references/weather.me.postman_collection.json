@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "c9636d7c-beae-4a67-809b-f6f759f3ff6c",
+		"name": "weather.me",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38275970"
+	},
+	"item": [
+		{
+			"name": "Entry Manipulation",
+			"item": [
+				{
+					"name": "addCountry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"iso3\": \"gbr\",\r\n  \"iso2\": \"gb\",\r\n  \"country_name\": \"Great Britain\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/database/entries/add-country",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"entries",
+								"add-country"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addState",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"state_name\": \"central java\",\r\n  \"country\": \"idn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/database/entries/add-state",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"entries",
+								"add-state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city_name\": \"Malang\",\r\n  \"country_iso3\": \"idn\",\r\n  \"state_name\": \"East Java\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/database/entries/add-city",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"entries",
+								"add-city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCountry",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"iso3\": \"gbr\",\r\n  \"iso2\": \"gb\",\r\n  \"country_name\": \"Great Britain\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/database/entries/delete-country",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"entries",
+								"delete-country"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteState",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"state_name\": \"central java\",\r\n  \"country\": \"idn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/database/entries/delete-state",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"entries",
+								"delete-state"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city_name\": \"Malang\",\r\n  \"country_iso3\": \"idn\",\r\n  \"state_name\": \"East Java\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/database/entries/delete-city",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"entries",
+								"delete-city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city_name\": \"Malang\",\r\n  \"country_iso3\": \"idn\",\r\n  \"state_name\": \"East Java\",\r\n  \"lat\": 1,\r\n  \"lon\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/database/entries/update-city",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"entries",
+								"update-city"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Table Manipulation",
+			"item": [
+				{
+					"name": "check if tables are empty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/database/check-if-tables-empty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"check-if-tables-empty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Redraw",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "redraw with dataset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/database/tables/redraw/mock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"tables",
+								"redraw",
+								"mock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/tables/populate-true",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/database/tables/populate-true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"database",
+								"tables",
+								"populate-true"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "External API request",
+			"item": [
+				{
+					"name": "getCoords",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/fetch-coordinates/aus/wa/perth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fetch-coordinates",
+								"aus",
+								"wa",
+								"perth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchStatesInCountry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/fetch-states/australia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fetch-states",
+								"australia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetchCitiesInState",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/fetch-cities/australia/western australia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fetch-cities",
+								"australia",
+								"western australia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCurrentWeather",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getComingWeekWeather",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getCurrentTime",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getAuth",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Internal API requests",
+			"item": [
+				{
+					"name": "getAllCountries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/location/countries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllStates",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/location/cities/all/limit-20/page-0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"cities",
+								"all",
+								"limit-20",
+								"page-0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "combinedRequest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/location/query/australia/western australia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"query",
+								"australia",
+								"western australia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "convertCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/location/convert/country_name/aus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"convert",
+								"country_name",
+								"aus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/location/data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStateByCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/location/states/australia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"states",
+								"australia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCitiesByState",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/location/cities/australia/western australia/limit-20/page-0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"cities",
+								"australia",
+								"western australia",
+								"limit-20",
+								"page-0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
