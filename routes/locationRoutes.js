@@ -25,7 +25,7 @@ router.get('/cities/:country/:state/limit-:limit/page-:page', locationController
 
 router.get('/query/:country/:state/:city', locationController.fetchFromQuery);
 
-router.get('/convert/:operation/:query', locationController.convert);
+router.get('/convert/:operation/:query', locationController.convert); //operation = country_name or _iso3
 
 router.get('/data', locationController.fetchLocationData)
 
