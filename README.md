@@ -14,8 +14,9 @@ To view business documentation and access working files like graphics, visit thi
 ---
 ## How to Get Combined Weather API Running  
 This API makes calls to a few different APIs so you will need to get the auth keys for those APIs yourself. You will need keys to access:
-[Open Weather API] (https://openweathermap.org/)
-[World Time API](https://www.api-ninjas.com/api/worldtime)
+- [Open Weather API](https://openweathermap.org/)
+- [World Time API](https://www.api-ninjas.com/api/worldtime)
+
 As well as a random string containing 128 characters which will be your API_TOKEN.
 
 1. **Download or pull the repository.**  
