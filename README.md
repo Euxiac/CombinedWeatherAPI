@@ -7,7 +7,7 @@ The application is built with **React** and styled using the **Material UI** lib
 **Combined Weather API** combines the information gathered from several other APIs to output relevant information for the front end. It also accesses and stores country, state and city data into a local database that it self-populates and self-manages.
 
 This repository holds the Back end of Weather.me, the **Combined Weather API**
-To view the front end this application supports, visit: [CombinedWeatherAPI](https://github.com/Euxiac/Weather.me).
+To view the front end this application supports, visit: [Weather.me](https://github.com/Euxiac/Weather.me).
 
 To view business documentation and access working files like graphics, visit this google drive [Weather.me Working Materials](https://drive.google.com/drive/folders/115whs7jF2DHDPpa8fSlnfOi2wL2bdvz_?usp=sharing).  
 
